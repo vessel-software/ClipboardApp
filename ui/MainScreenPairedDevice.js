@@ -1,9 +1,9 @@
 let dom = require('dominant');
 
-module.exports = ({ dispositivo }) => {
+module.exports = ({ device }) => {
   let model = {
-    get dispositivo() {
-      return dom.resolve(dispositivo)
+    get device() {
+      return dom.resolve(device)
     }
   }
 
@@ -12,9 +12,9 @@ module.exports = ({ dispositivo }) => {
   }, [
     dom.el('div', {
     }, [
-      model.dispositivo.name,
+      model.device.name,
       ' - ',
-      model.dispositivo.description
+      model.device.description
     ],
     ),
   ]))

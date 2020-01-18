@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "browserify": "^16.5.0",
+    "prettier": "1.19.1",
     "wzrd": "^1.5.0"
   }
 }
