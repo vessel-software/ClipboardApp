@@ -1,0 +1,24 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "rules": {
+    },  
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "eslint.validate": [
+        { "language": "javascript", "autoFix": true },
+    ],
+    "eslint.nodePath": "C:/Users/YOURUSERNAME/AppData/Local/Packages/CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc/LocalState/rootfs/home/UBUNTUUSERNAME/.npm-global/lib/node_modules",
+    "extends": ["plugin:prettier/recommended"]
+}
