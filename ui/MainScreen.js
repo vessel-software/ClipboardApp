@@ -1,6 +1,6 @@
-let MainScreenCmdBar = require('./MainScreenCmdBar');
-let MainScreenAllShares = require('./MainScreenAllShares');
-let MainScreenAllPairedDevices = require('./MainScreenAllPairedDevices');
+let MainScreenDeviceList = require('./MainScreenDeviceList');
+let MainScreenHeader = require('./MainScreenHeader');
+let MainScreenShareList = require('./MainScreenShareList');
 let dom = require('dominant');
 
 module.exports = () => {
@@ -17,8 +17,8 @@ module.exports = () => {
     ],
   };
   return dom.el('div', { class: 'my-6', model }, [
-    model.cmdBar = MainScreenCmdBar(),
-    model.allPairedDevices = MainScreenAllPairedDevices({'devices': model.devices}),
-    model.allShares = MainScreenAllShares({'shares': model.shares}),
+    model.header = MainScreenHeader(),
+    model.deviceList = MainScreenDeviceList({'devices': model.devices}),
+    model.shareList = MainScreenShareList({'shares': model.shares}),
   ]);
 };
