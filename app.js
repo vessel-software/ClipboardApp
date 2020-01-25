@@ -1,7 +1,7 @@
 let MainScreen = require('./ui/MainScreen');
-let dom = require('dominant');
+let d = require('dominant');
 
-document.head.append(dom.el('style', `
+document.head.append(d.el('style', `
   body {
     display: flex;
     flex-direction: column;
@@ -12,7 +12,7 @@ document.head.append(dom.el('style', `
 `));
 
 addEventListener('DOMContentLoaded', () => {
-  document.body.append(window.MainScreen = MainScreen());
+  document.body.append(window.mainScreen = d.el(MainScreen));
 });
 
-window.dom = dom;
+window.d = d;

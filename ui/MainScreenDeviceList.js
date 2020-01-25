@@ -1,20 +1,19 @@
 let MainScreenDeviceListItem = require('./MainScreenDeviceListItem');
-let dom = require('dominant');
+let d = require('dominant');
 
-module.exports = ({devices}) => dom.el('div', {
-  class: 'text-gray-700 pt-4 flex flex-col',
-}, [
-  dom.el('div', {
+module.exports = class MainScreenDeviceList extends d.Component {
+  get devices() {
+    return d.resolve(this.props.devices);
+  }
+
+  render = () => d.el('div', {
+    model: this,
+    class: 'text-gray-700 pt-4 flex flex-col',
   }, [
-    'Dispositivos pareados',
-  ]),
-  dom.el('div', {
-  }, [
-  ]),
-  dom.map(
-    () => devices, device => dom.el('div', {
-    }, [
-      MainScreenDeviceListItem({ device })
-    ]),
-  ),
-]);
+    d.el('div', 'Dispositivos pareados'),
+
+    d.map(() => this.devices, device => d.el('div', [
+      d.el(MainScreenDeviceListItem, { device }),
+    ])),
+  ]);
+};

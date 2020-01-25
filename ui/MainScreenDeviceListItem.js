@@ -1,21 +1,14 @@
-let dom = require('dominant');
+let d = require('dominant');
 
-module.exports = ({ device }) => {
-  let model = {
-    get device() {
-      return dom.resolve(device)
-    }
+module.exports = class MainScreenDeviceListItem extends d.Component {
+  get device() {
+    return d.resolve(this.props.device);
   }
 
-  return (dom.el('div', {
+  render = () => d.el('div', {
+    model: this,
     class: 'text-gray-700 pb-2 pt-2',
   }, [
-    dom.el('div', {
-    }, [
-      model.device.name,
-      ' - ',
-      model.device.description
-    ],
-    ),
-  ]))
-}
+    d.text(() => `${this.device.name} - ${this.device.description}`),
+  ]);
+};
