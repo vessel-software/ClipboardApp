@@ -1,4 +1,3 @@
-let MainScreenDeviceListItem = require('./MainScreenDeviceListItem');
 let d = require('dominant');
 
 module.exports = class MainScreenDeviceList extends d.Component {
@@ -8,12 +7,12 @@ module.exports = class MainScreenDeviceList extends d.Component {
 
   render = () => d.el('div', {
     model: this,
-    class: 'text-gray-700 pt-4 flex flex-col',
+    class: 'text-gray-700 flex flex-col',
   }, [
-    d.el('div', 'Dispositivos pareados'),
-
-    d.map(() => this.devices, device => d.el('div', [
-      d.el(MainScreenDeviceListItem, { device }),
+    d.map(() => this.devices, device => d.el('div', {
+      class: 'text-gray-700 pb-2 pt-2',
+    }, [
+      d.text(() => `${device.name} - ${device.description}`),
     ])),
   ]);
 };

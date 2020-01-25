@@ -38,9 +38,25 @@ module.exports = class MainScreen extends d.Component {
     },
   ];
 
-  render = () => d.el('div', { model: this, class: 'my-6' }, [
-    this.header = d.el(MainScreenHeader),
-    this.deviceList = d.el(MainScreenDeviceList, { devices: this.devices }),
-    this.shareList = d.el(MainScreenShareList, { shares: this.shares }),
+  renderSection = (label, ...children) => d.el('div', { class: 'px-4' }, [
+    d.el('div', { class: 'py-2 font-bold text-gray-600' }, label),
+    ...children,
+  ]);
+
+  render = () => d.el('div', { model: this, class: 'bg-gray-900' }, [
+    d.el('div', {
+      style: () => ({ width: '600px' }),
+      class: 'shadow-2xl mx-auto min-h-screen bg-gray-800',
+    }, [
+      this.header = d.el(MainScreenHeader),
+
+      this.renderSection('Dispositivos pareados', [
+        this.deviceList = d.el(MainScreenDeviceList, { devices: this.devices }),
+      ]),
+
+      this.renderSection('Compartilhamentos', [
+        this.shareList = d.el(MainScreenShareList, { shares: this.shares }),
+      ]),
+    ]),
   ]);
 };
