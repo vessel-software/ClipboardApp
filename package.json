@@ -7,7 +7,7 @@
     "start": "wzrd app.js"
   },
   "dependencies": {
-    "dominant": "github:guipra/dominant"
+    "dominant": "github:guipra/dominant#component"
   },
   "devDependencies": {
     "browserify": "^16.5.0",
