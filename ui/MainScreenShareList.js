@@ -2,7 +2,7 @@ let d = require('dominant');
 
 exports = module.exports = class MainScreenShareList extends d.Component {
   static shareIconClassesByType = {
-    text: 'fas fa-font',
+    text: 'fas fa-quote-right',
     link: 'fas fa-link',
   };
 
@@ -14,18 +14,16 @@ exports = module.exports = class MainScreenShareList extends d.Component {
 
   render = () => d.el('div', {
     model: this,
-    class: 'text-gray-500 flex flex-col',
+    class: 'flex flex-col px-3 text-gray-500',
   }, [
     d.map(() => this.shares, share => d.el('div', {
-      class: 'text-gray-700 py-2 flex -mx-2',
+      class: 'flex items-center -mx-2 my-2',
     }, [
-      d.el('i', {
-        class: `${this.shareIconClassesFor(share)} pt-4 text-lg pl-2`,
-      }),
+      d.el('i', { class: `pr-4 ${this.shareIconClassesFor(share)} text-lg` }),
 
-      d.el('div', { class: 'pl-2 truncate' }, [
-        d.el('p', { class: 'text-gray-900' }, d.text(() => share.author)),
-        d.el('p', d.text(() => share.content)),
+      d.el('div', [
+        d.el('p', { class: 'truncate' }, d.text(() => share.source)),
+        d.el('p', { class: 'truncate' }, d.text(() => share.content)),
       ]),
     ])),
   ]);

@@ -4,7 +4,7 @@ let d = require('dominant');
 module.exports = class MainScreenHeader extends d.Component {
   render = () => d.el('div', {
     model: this,
-    class: 'shadow-md p-4 bg-gray-600',
+    class: 'shadow-lg mb-4 p-4',
   }, [
     d.el(MainScreenCmdBar),
   ]);
