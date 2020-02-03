@@ -6,6 +6,11 @@ exports = module.exports = class MainScreenShareList extends d.Component {
     link: 'fas fa-link',
   };
 
+  constructor(props) {
+    super();
+    this.props = props;
+  }
+
   get shares() {
     return d.resolve(this.props.shares);
   }

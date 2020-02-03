@@ -7,6 +7,11 @@ exports = module.exports = class MainScreenDeviceList extends d.Component {
     mobile: 'fas fa-mobile',
   };
 
+  constructor(props) {
+    super();
+    this.props = props;
+  }
+
   get devices() {
     return d.resolve(this.props.devices);
   }
