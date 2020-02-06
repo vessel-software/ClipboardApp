@@ -1,6 +1,6 @@
 let d = require('dominant');
 
-exports = module.exports = class MainScreenShareList extends d.Component {
+class MainScreenShareList extends d.Component {
   static shareIconClassesByType = {
     text: 'fas fa-quote-right',
     link: 'fas fa-link',
@@ -33,3 +33,5 @@ exports = module.exports = class MainScreenShareList extends d.Component {
     ])),
   ]);
 };
+
+module.exports = exports = MainScreenShareList;

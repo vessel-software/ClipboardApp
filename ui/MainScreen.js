@@ -3,7 +3,7 @@ let MainScreenHeader = require('./MainScreenHeader');
 let MainScreenShareList = require('./MainScreenShareList');
 let d = require('dominant');
 
-module.exports = class MainScreen extends d.Component {
+class MainScreen extends d.Component {
   devices = [
     { type: 'laptop', name: 'Home Laptop' },
   ];
@@ -72,3 +72,5 @@ module.exports = class MainScreen extends d.Component {
     ...children,
   ]);
 };
+
+module.exports = MainScreen;

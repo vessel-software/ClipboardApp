@@ -1,6 +1,6 @@
 let d = require('dominant');
 
-exports = module.exports = class MainScreenDeviceList extends d.Component {
+class MainScreenDeviceList extends d.Component {
   static deviceIconClassesByType = {
     desktop: 'fas fa-desktop',
     laptop: 'fas fa-laptop',
@@ -31,3 +31,5 @@ exports = module.exports = class MainScreenDeviceList extends d.Component {
     ])),
   ]);
 };
+
+module.exports = exports = MainScreenDeviceList;
