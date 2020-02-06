@@ -1,14 +1,11 @@
-let dom = require('dominant');
+let d = require('dominant');
 
-module.exports = () => dom.el('div', {
-  class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline',
-}, [
-  dom.el('div', {
-  }, [
-    'Derp',
-  ]),
+class MainScreenCmdBar extends d.Component {
+  render = () => d.el('input', {
+    model: this,
+    class: 'bg-gray-300 appearance-none rounded w-full py-2 px-4 placeholder-gray-600 text-gray-700 leading-tight shadow-inner focus:outline-none focus:bg-gray-200',
+    placeholder: 'Search, paste, or type to send...',
+  })
+};
 
-  dom.el('div', {
-  }, [
-  ]),
-]);
+module.exports = MainScreenCmdBar;
