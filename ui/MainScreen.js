@@ -30,30 +30,61 @@ class MainScreen extends d.Component {
     },
   ];
 
+  classes = {
+    root: `
+      mainScreen-root
+      flex flex-col items-center
+      min-h-screen
+      py-16
+      bg-gray-900
+    `,
+
+    logoWrapper: `
+      mainScreen-logoWrapper
+      flex justify-center items-center
+      w-32 h-32
+      mb-12
+      rounded-full
+      text-6xl
+      text-gray-400
+      bg-gray-800
+      shadow-xl
+    `,
+
+    contentWrapper: `
+      mainScreen-contentWrapper
+      mx-auto
+      pb-4
+      rounded
+      overflow-hidden
+      bg-gray-800
+      shadow-2xl
+    `,
+
+    sectionWrapper: `
+      mainScreen-sectionWrapper
+      px-4
+    `,
+
+    sectionLabel: `
+      mainScreen-sectionLabel
+      py-2
+      font-bold
+      text-gray-600
+    `,
+  };
+
   render = () => d.el('div', {
     model: this,
-    style: () => ({ padding: '64px 0' }),
-    class: 'flex flex-col items-center min-h-screen bg-gray-900',
+    class: this.classes.root,
   }, [
-    d.el('div', {
-      style: () => ({
-        width: '150px',
-        height: '150px',
-        'margin-bottom': '64px',
-        'border-radius': '100%',
-        'font-size': '100px',
-      }),
-
-      class: 'flex items-center justify-center text-gray-400 bg-gray-800 shadow-xl',
-    }, [
-      d.el('i', {
-        class: 'fas fa-clipboard-list',
-      }),
+    d.el('div', { class: this.classes.logoWrapper }, [
+      d.el('i', { class: 'fas fa-clipboard-list' }),
     ]),
 
     d.el('div', {
       style: () => ({ width: '600px' }),
-      class: 'shadow-2xl mx-auto pb-4 rounded overflow-hidden bg-gray-800',
+      class: this.classes.contentWrapper,
     }, [
       this.header = d.el(MainScreenHeader),
 
@@ -67,8 +98,10 @@ class MainScreen extends d.Component {
     ]),
   ]);
 
-  renderSection = (label, ...children) => d.el('div', { class: 'px-4' }, [
-    d.el('div', { class: 'py-2 font-bold text-gray-600' }, label),
+  renderSection = (label, ...children) => d.el('div', {
+    class: this.classes.sectionWrapper,
+  }, [
+    d.el('div', { class: this.classes.sectionLabel }, label),
     ...children,
   ]);
 };
