@@ -6,70 +6,68 @@ let d = require('dominant');
 class MainScreen extends d.Component {
   devices = [
     { type: 'laptop', name: 'Home Laptop' },
+    { type: 'mobile', name: 'Phone' },
   ];
 
   shares = [
     {
+      type: 'link',
+      source: 'Phone',
+      url: 'https://github.com/vessel-software/ClipboardApp',
+    },
+
+    {
       type: 'text',
-      source: 'Home Laptop',
+      source: 'Phone',
       content: 'proin euismod malesuada urna et interdum eros tincidunt ac',
     },
 
     {
       type: 'text',
-      source: 'Home Laptop',
+      source: 'Phone',
       content: 'Ut laoreet, odio eget sollicitudin tristique, felis neque dapibus tortor, consectetur imperdiet ligula turpis sed justo. Donec blandit ut diam eu rhoncus. Mauris sed nisl urna. Mauris tempor, sem et hendrerit fringilla, tortor orci pulvinar est, sit amet cursus est arcu ut justo. Duis pretium posuere interdum. Curabitur varius fringilla tempus. Vivamus id risus sed lorem tempus lacinia',
-    },
-
-    // {type: 'link', content: 'proin euismod malesuada urna et interdum eros tincidunt ac'},
-
-    {
-      type: 'link',
-      source: 'Home Laptop',
-      url: 'https://github.com/vessel-software/ClipboardApp',
     },
   ];
 
   classes = {
     root: `
-      mainScreen-root
+      MainScreen
       flex flex-col items-center
       min-h-screen
       py-16
-      bg-gray-900
+      bg-gray-100
     `,
 
     logoWrapper: `
-      mainScreen-logoWrapper
+      MainScreen-logoWrapper
       flex justify-center items-center
       w-32 h-32
       mb-12
       rounded-full
       text-6xl
       text-gray-400
-      bg-gray-800
-      shadow-xl
+      bg-white
+      shadow-lg
     `,
 
     contentWrapper: `
-      mainScreen-contentWrapper
+      MainScreen-contentWrapper
       mx-auto
-      pb-4
+      pb-6
       rounded
       overflow-hidden
-      bg-gray-800
-      shadow-2xl
+      bg-white
+      shadow
     `,
 
     sectionWrapper: `
-      mainScreen-sectionWrapper
-      px-4
+      MainScreen-sectionWrapper
+      px-8
     `,
 
     sectionLabel: `
-      mainScreen-sectionLabel
-      py-2
-      font-bold
+      MainScreen-sectionLabel
+      pt-2
       text-gray-600
     `,
   };
@@ -88,21 +86,14 @@ class MainScreen extends d.Component {
     }, [
       this.header = d.el(MainScreenHeader),
 
-      this.renderSection('Devices', [
+      d.el('div', { class: this.classes.sectionWrapper }, [
         this.deviceList = d.el(MainScreenDeviceList, { devices: this.devices }),
       ]),
 
-      this.renderSection('Shares', [
+      d.el('div', { class: this.classes.sectionWrapper }, [
         this.shareList = d.el(MainScreenShareList, { shares: this.shares }),
       ]),
     ]),
-  ]);
-
-  renderSection = (label, ...children) => d.el('div', {
-    class: this.classes.sectionWrapper,
-  }, [
-    d.el('div', { class: this.classes.sectionLabel }, label),
-    ...children,
   ]);
 };
 

@@ -1,9 +1,22 @@
 let d = require('dominant');
 
 class MainScreenCmdBar extends d.Component {
+  classes = {
+    root: `
+      appearance-none
+      w-full px-8 py-4
+      focus:outline-none
+      border border-solid border-gray-300
+      bg-gray-200
+      leading-tight
+      text-gray-700
+      placeholder-gray-600
+    `,
+  };
+
   render = () => d.el('input', {
     model: this,
-    class: 'bg-gray-300 appearance-none rounded w-full py-2 px-4 placeholder-gray-600 text-gray-700 leading-tight shadow-inner focus:outline-none focus:bg-gray-200',
+    class: this.classes.root,
     placeholder: 'Search, paste, or type to send...',
   })
 };

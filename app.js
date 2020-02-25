@@ -6,3 +6,4 @@ addEventListener('DOMContentLoaded', () => {
 });
 
 window.d = d;
+window.tap = x => (console.log(x), x);
